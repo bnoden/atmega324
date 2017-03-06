@@ -1,0 +1,112 @@
+EEPROM - electrically erasable programmable read-only memory
+	-but not really read-only, can write to it
+
+RX<-0 = receive
+TX->1 = transmit
+
+quartz crystal oscillator - ticks 16 million times/second, one mathematical operation each tick
+
+Ohm's Law
+	I = V/R
+		current = voltage/resistance
+			A = V/Ω
+				amperes = voltage/ohms
+	mA = .001 amperes (1/1000)
+
+P = I*V
+	watts = amps*voltage
+P = (V^2)/R
+	watts = volts^2/resistance
+
+
+
+Computer Systems
+
+	5 functional units
+		
+		control unit (CU)
+			fetching, decoding, executing
+		arithmetic logical unit (ALU)
+		main memory
+			typically RAM
+		secondary storage
+			typically ROM
+		I/O
+
+		CPU = CU+ALU
+
+
+	CISC	-	complex instruction set computer
+		simple to complex
+	RISC	-	reduced instruction set computer
+		very simple
+
+	Von Neumann Architecture
+		aka Princeton Architecture aka Stored Program Computer
+			-instructions and data stored in same physical memory
+
+	Harvard Architecture
+		-instructions and data stored separately
+		AVR uses Harvard architecture
+		
+
+
+
+		
+
+
+Digital Logic
+
+	Logic Gates
+		Pins ordered counter-clockwise from notch
+			Pin 7 - often GND
+			Pin 14 - often 5v
+
+	TTL - transistor-transistor logic
+
+	Current and Voltage Limitations
+		7400 series gate:
+			I OH = maximum current when output is high. About -0.4mA for TTL
+			I OL = maximum current when output is low. About 16.0mA
+			I IH = maximum current when input is high. About 0.04mA
+			I IL = maximum current when input is low. About -1.6mA
+
+		For signals ENTERING TTL gate:
+			2v to 5v = HIGH
+			0v to 0.8v = LOW
+			Else unknown
+
+		For signals EXITING TTL gate:
+			2.4v to 5v = HIGH
+			0v to 0.4v = LOW
+			Else unknown
+
+
+	Fan Out - Number of gate inputs that can be driven by one chip output before output signal degrades.
+		-determined by output current and input current
+
+			I OH = maximum current when output is high. About –0.40mA for TTL
+			I OL = maximum current when output is low. About 16.00mA
+			I IH = maximum current when input is high. About 0.04mA
+			I IL = maximum current when input is low. About –1.60mA
+
+
+	DIP and SIP resistors - p24
+		dual in-line-package
+			471 = "47"+1*("0") = 471 ohms
+			102 = "10"+2*("0") = 1000 ohms
+		single in-line-package
+			-number of resistors is 1 less than number of pins in SIP
+
+
+	7-Segment Displays
+
+		Pin#-->    1   2   3   4   5   6    7   8  9   10  11  12   13 14
+		Display:
+		TIL312     A   F  Vcc               E   D  DP   C   G        B Vcc
+		NTE3061    A   F  Vcc          DP   E   D       C   G        B Vcc
+		LSD3221    A   F  Vcc               E   D  DP   C   G        B Vcc
+		NTE3052    A   F  Vcc               E   D  DP   C   G        B Vcc
+		LSD3211    F   G      GND       E   D   C  DP          GND   B   A
+
+
