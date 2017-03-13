@@ -19,7 +19,7 @@ int main(void)
 
 	while (1) {
 		
-		while (!(bit_is_clear(PINB, 1)) & !(lvReleased > LV_MIN)) {
+		while (!(bit_is_clear(PINB, 1)) && !(lvReleased > LV_MIN)) {
 			lvReleased++;
 			lvPressed = 0;
 		}
@@ -28,16 +28,16 @@ int main(void)
 			lvPressed++;
 			lvReleased = 0;
 
-			if (lvPressed > LV_MIN & Pressed == 0) {
-				PORTB ^= 1 << PINB0; //Toggle LED in pin 0
-				PORTB ^= 1 << PINB2; //Toggle LED on pin 2
+			if (!Pressed && lvPressed > LV_MIN) {
+				PORTB ^= 1 << PINB0;
+				PORTB ^= 1 << PINB2;
 				Pressed = 1;
 				lvPressed = 0;
 			}
 		}
 		else if (lvReleased > LV_MIN) {
-				Pressed = 0;
-				lvReleased = 0;
-			}
+			Pressed = 0;
+			lvReleased = 0;
+		}
 	}
 }
