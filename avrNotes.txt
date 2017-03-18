@@ -110,3 +110,12 @@ Digital Logic
 		LSD3211    F   G      GND       E   D   C  DP          GND   B   A
 
 
+	The three most important hardware registers		Make: AVR Programming p48
+		DDRx data-direction registers (portx)
+		PORTx port x data registers
+		PINx port x input pins address
+
+		Configuring output: DDRs, PORTs
+			1. Configure the relevant pin for output mode by writing to the data-direction register (DDR).
+			2. Assign a high or low value to the individual pin by writing to the PORT hardware register.
+
