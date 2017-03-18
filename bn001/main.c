@@ -5,7 +5,7 @@
  * Author : Brandon
  */ 
 
- #define F_CPU 1000000UL
+#define F_CPU 1000000UL
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -17,23 +17,23 @@ int main(void)
     const double dms = 1000.0;
 
 	DDRB |= 1 << PB0;
+	DDRB |= 1 << PB1;
 	
-	int count = 0x40;
+	int count = 0x90;
 	while (count) {
 		
-		if (count%2) {
+		
 		PORTB = 0b00000001;
-		_delay_ms(dms/5);
+		_delay_ms(dms/6);
 
 		PORTB = 0b00000000;
-		_delay_ms(dms/8);
-		}
+		_delay_ms(dms/100);
 
-		PORTB = 0b00000001;
-		_delay_ms(dms/2);
+		PORTB = 0b00000010;
+		_delay_ms(dms/6);
 
 		PORTB = 0b00000000;
-		_delay_ms(dms/3);
+		_delay_ms(dms/100);
 
 		--count;
 	}
