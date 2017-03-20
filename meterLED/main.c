@@ -20,19 +20,24 @@
 int main(void)
 {
 
-	uint8_t i;
+	int i;
 	LED_DDR = 0xff;
 	
 	
 	while (1) {
-		
+
 		i = 0;
 
 		while (i<LED_NUM) {
 			LED_PORT ^= 1 << i;
 			_delay_ms(DMS/20);
-			
 			i++;
+		}
+
+		while (i>=0) {
+			LED_PORT ^= 1 << i;
+			_delay_ms(DMS/20);
+			i--;
 		}
 
 
