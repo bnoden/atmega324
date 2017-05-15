@@ -1,3 +1,9 @@
+avrdude -c usbtiny -p m324p
+avrdude -c ftdi -p m324p
+avrdude -c avrftdi -p m328p
+avrdude -c usbtiny -p m328p
+
+
 EEPROM - electrically erasable programmable read-only memory
 	-but not really read-only, can write to it
 
@@ -18,7 +24,10 @@ P = I*V
 P = (V^2)/R
 	watts = volts^2/resistance
 
-
+Kirchhoff's Current Law
+	currentIn = -currentOut
+Kirchhoff's Voltage Law
+	all voltages between points around circuit add up to 0
 
 Computer Systems
 
@@ -35,6 +44,7 @@ Computer Systems
 
 		CPU = CU+ALU
 
+	RD/WR must be applied before Enable
 
 	CISC	-	complex instruction set computer
 		simple to complex
